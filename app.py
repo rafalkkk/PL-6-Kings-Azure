@@ -1,3 +1,4 @@
+"""Main application file"""
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
 from flask import Flask, url_for, request, redirect
