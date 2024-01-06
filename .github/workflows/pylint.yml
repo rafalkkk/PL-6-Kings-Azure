@@ -2,10 +2,12 @@
 name: Pylint
 
 # we want this workflow run on push and pull request for main branch
-on: [push]
-  branches: main
-on: pull_request
-  branches: main
+on: 
+  [push]
+    branches: main
+on: 
+  pull_request
+    branches: main
 
 jobs:
   build:
