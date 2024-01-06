@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - 6kings
+name: Build and deploy main - 6kings - manual
 
 on:
   push:
@@ -17,25 +17,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python version
+      - name: Set up Python version - manual
         uses: actions/setup-python@v1
         with:
           python-version: '3.10'
 
-      - name: Create and start virtual environment
+      - name: Create and start virtual environment manual
         run: |
           python -m venv venv
           source venv/bin/activate
       
-      - name: Install dependencies
+      - name: Install dependencies manual
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
-      - name: Zip artifact for deployment
+      - name: Zip artifact for deployment manual
         run: zip release.zip ./* -r
 
-      - name: Upload artifact for deployment jobs
+      - name: Upload artifact for deployment jobs manual
         uses: actions/upload-artifact@v3
         with:
           name: python-app
@@ -47,23 +47,23 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'UAT'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact from build job manual
         uses: actions/download-artifact@v3
         with:
           name: python-app
 
-      - name: Unzip artifact for deployment
+      - name: Unzip artifact for deployment manual
         run: unzip release.zip
 
       
-      - name: 'Deploy to Azure Web App'
+      - name: 'Deploy to Azure Web App - manual'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: '6kings'
-          slot-name: 'Production'
+          slot-name: 'uat'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_582D1BF95BFF47FA8CD3F01F340568CC }}
