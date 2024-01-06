@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: '6kings'
           slot-name: 'uat'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_582D1BF95BFF47FA8CD3F01F340568CC }}
+          publish-profile: ${{ secrets.WEB_6KINGS_UAT_SLOT_UAT }}
