@@ -1,8 +1,15 @@
+# Huge part of this script was taken from pylint example
 name: Pylint
 
+# if the code should be running on all brances for specific event
+# on: [push]
+
+# but we want this workflow run on push and pull request for main branch
 on: 
   push:
     branches: [main, dev]
+  pull_request:
+    branches: main
 
 jobs:
   build:
