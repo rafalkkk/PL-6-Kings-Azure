@@ -64,6 +64,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: '6kings'
+          app-name: '6kings-dev'
           slot-name: 'uat'
           publish-profile: ${{ secrets.WEB_6KINGS_UAT_SLOT_UAT }}
