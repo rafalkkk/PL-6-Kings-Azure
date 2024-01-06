@@ -46,6 +46,11 @@ def success(name):
     """Function generates the success message"""
     return f'welcome {name} <br><a href={ url_for("hello_world") }>take me home</a>'
 
+def failure(name):
+    """Function generates the failure message"""
+    return f'''Sorry, we don\'t belive you are {name} <br>
+<a href={ url_for("hello_world") }>try again</a>'''
+
 # main driver function
 if __name__ == '__main__':
 	# run() method of Flask class runs the application
