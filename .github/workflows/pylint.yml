@@ -7,7 +7,10 @@ name: Pylint
 # but we want this workflow run on push and pull request for main branch
 on: 
   push:
-    branches: [main, dev]
+    # if we want to run it on multiple branches put a list here
+    #branches: [main, dev]
+    # but we want only one 
+    branches: [main]
   pull_request:
     branches: main
 
