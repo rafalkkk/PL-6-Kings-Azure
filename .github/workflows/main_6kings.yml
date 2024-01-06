@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'UAT'
+      name: 'UAT-ENV77'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
