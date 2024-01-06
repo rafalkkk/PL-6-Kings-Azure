@@ -1,30 +1,38 @@
+# Huge part of this script was taken from pylint example
 name: Pylint
 
+# we want this workflow run on push and pull request for main branch
 on: [push]
+#     branches: main
+# on: 
+#   pull_request
+#     branches: main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # pylint will analyze the code on different versions of python
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
  
+    # take the code from repo
     steps:
     - uses: actions/checkout@v3
-
+    # Python will be installed
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-
+    # pylint module will be installed
     - name: Install dependencies for pylint
       run: |
         python -m pip install --upgrade pip
         pip install pylint
-
+    # specific application requirements will be installed
     - name: Python Requirements installation for specific application
       uses: py-actions/py-dependency-install@v4.1.0
-            
+    # code analysis starts            
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
