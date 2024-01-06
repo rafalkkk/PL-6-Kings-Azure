@@ -7,8 +7,8 @@ from flask import Flask, url_for, request, redirect
 app = Flask(__name__)
 
 def dyn():
-   return f'Dynamically added route<br><a href={ url_for("hello_world") }>take me home</a>'
-app.add_url_rule('/dynamic', 'dynamic_route', dyn)
+    return f'Dynamically added route<br><a href={ url_for("hello_world") }>take me home</a>'
+    app.add_url_rule('/dynamic', 'dynamic_route', dyn)
 
 # The route() function of the Flask class is a decorator
 # which tells the application which URL should call
@@ -44,7 +44,6 @@ def success(name):
 
 # main driver function
 if __name__ == '__main__':
-
 	# run() method of Flask class runs the application
 	# on the local development server.
 	app.run()
