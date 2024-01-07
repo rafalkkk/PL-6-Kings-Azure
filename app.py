@@ -20,7 +20,8 @@ app.add_url_rule('/dynamic', 'dynamic_route', dyn)
 def hello_world():
     """Function generates hello_world page"""
     content = f'''<html>
-      <body>     
+      <body>    
+      <h1>6KINGS</h1> 
       <form action = { url_for("login") } method = "post">
       <p>Enter Name:</p>
       <p><input type = "text" name = "nm" /></p>
