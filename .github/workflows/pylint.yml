@@ -6,11 +6,13 @@ name: Pylint
 
 # but we want this workflow run on push and pull request for main branch
 on: 
+  # push event is generated when a new version of code arrives into the branch
   push:
     # if we want to run it on multiple branches put a list here
     #branches: [main, dev]
     # but we want only one 
     branches: [main]
+  # pull request event is generated when you click pull request before you confirm the request
   pull_request:
     branches: main
 
